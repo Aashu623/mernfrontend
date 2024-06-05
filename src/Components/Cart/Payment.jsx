@@ -57,7 +57,7 @@ function Payment() {
       };
 
       const { data } = await axios.post(
-        "/https://mern-87y8.onrender.com/api/v1/payment/process",
+        "/`${process.env.BASE_URL}`/payment/process",
         paymentData,
         config
       );

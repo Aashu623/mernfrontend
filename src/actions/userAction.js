@@ -47,7 +47,7 @@ export const login = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/https://mern-87y8.onrender.com/api/v1/login`,
+      `/`${process.env.BASE_URL}`/login`,
       { email, password },
       config
     );
@@ -66,7 +66,7 @@ export const register = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/https://mern-87y8.onrender.com/api/v1/register`,
+      `/`${process.env.BASE_URL}`/register`,
       userData,
       config
     );
@@ -83,7 +83,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`/https://mern-87y8.onrender.com/api/v1/me`);
+    const { data } = await axios.get(`/`${process.env.BASE_URL}`/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -96,7 +96,7 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
 
-    await axios.get(`/https://mern-87y8.onrender.com/api/v1/logout`);
+    await axios.get(`/`${process.env.BASE_URL}`/logout`);
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
@@ -112,7 +112,7 @@ export const updateProfile = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.put(
-      `/https://mern-87y8.onrender.com/api/v1/me/update`,
+      `/`${process.env.BASE_URL}`/me/update`,
       userData,
       config
     );
@@ -131,7 +131,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.put(
-      `/https://mern-87y8.onrender.com/api/v1/password/update`,
+      `/`${process.env.BASE_URL}`/password/update`,
       passwords,
       config
     );
@@ -150,7 +150,7 @@ export const forgotPassword = (email, password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
-      `/https://mern-87y8.onrender.com/api/v1/password/forgot`,
+      `/`${process.env.BASE_URL}`/password/forgot`,
       email,
       config
     );
@@ -169,7 +169,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/https://mern-87y8.onrender.com/api/v1/password/reset/${token}`,
+      `/`${process.env.BASE_URL}`/password/reset/${token}`,
       passwords,
       config
     );
@@ -185,7 +185,7 @@ export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USER_REQUEST });
 
-    const { data } = await axios.get(`/https://mern-87y8.onrender.com/api/v1/admin/users`);
+    const { data } = await axios.get(`/`${process.env.BASE_URL}`/admin/users`);
 
     dispatch({ type: ALL_USER_SUCCESS, payload: data.users });
   } catch (error) {
@@ -198,7 +198,7 @@ export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/https://mern-87y8.onrender.com/api/v1/admin/user/${id}`);
+    const { data } = await axios.get(`/`${process.env.BASE_URL}`/admin/user/${id}`);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
@@ -214,7 +214,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.put(
-      `/https://mern-87y8.onrender.com/api/v1/admin/user/${id}`,
+      `/`${process.env.BASE_URL}`/admin/user/${id}`,
       userData,
       config
     );
@@ -231,7 +231,7 @@ export const deleteUser = (id) => async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
 
     const { data } = await axios.delete(
-      `/https://mern-87y8.onrender.com/api/v1/admin/user/${id}`
+      `/`${process.env.BASE_URL}`/admin/user/${id}`
     );
 
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
