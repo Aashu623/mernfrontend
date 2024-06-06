@@ -29,6 +29,7 @@ import {
     DELETE_REVIEW_FAIL
 } from '../constants/productConstants.js';
 import axios from 'axios';
+import {base_url} from '../url.js'
 
 
 //get all product action
@@ -38,10 +39,10 @@ export const getProduct =
             try {
                 dispatch({ type: ALL_PRODUCT_REQUEST })
 
-                let link = `${process.env.BASE_URL}/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
+                let link = `${base_url}/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
 
                 if (category) {
-                    link = `${process.env.BASE_URL}/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&category=${category}`
+                    link = `${base_url}/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&category=${category}`
                 }
                 const { data } = await axios.get(link)
 
@@ -62,7 +63,7 @@ export const getAdminProducts = () => async (dispatch) => {
     try {
         dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
-        const { data } = await axios.get(`${process.env.BASE_URL}/admin/products`);
+        const { data } = await axios.get(`${base_url}/admin/products`);
 
         dispatch({ type: ADMIN_PRODUCT_SUCCESS, payload: data.products })
     } catch (error) {
@@ -79,7 +80,7 @@ export const createProduct = (productData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" },
         }
 
-        const { data } = await axios.post(`${process.env.BASE_URL}/admin/product/new`, productData, config)
+        const { data } = await axios.post(`${base_url}/admin/product/new`, productData, config)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -101,7 +102,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" },
         }
 
-        const { data } = await axios.put(`${process.env.BASE_URL}/admin/product/${id}`, productData, config)
+        const { data } = await axios.put(`${base_url}/admin/product/${id}`, productData, config)
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -120,7 +121,7 @@ export const deleteProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-        const { data } = await axios.delete(`${process.env.BASE_URL}/admin/product/${id}`);
+        const { data } = await axios.delete(`${base_url}/admin/product/${id}`);
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -136,7 +137,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`/${process.env.BASE_URL}/product/${id}`)
+        const { data } = await axios.get(`/${base_url}/product/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -159,7 +160,7 @@ export const newReview = (reviewData) => async (dispatch) => {
             headers: { "Content-Type": "application/json" },
         }
 
-        const { data } = await axios.put(`/${process.env.BASE_URL}/review`, reviewData, config)
+        const { data } = await axios.put(`/${base_url}/review`, reviewData, config)
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -178,7 +179,7 @@ export const getAllReviews = (id) => async (dispatch) => {
     try {
         dispatch({ type: ALL_REVIEW_REQUEST })
 
-        const { data } = await axios.get(`/${process.env.BASE_URL}/admin/reviews?id=${id}`)
+        const { data } = await axios.get(`/${base_url}/admin/reviews?id=${id}`)
 
         dispatch({
             type: ALL_REVIEW_SUCCESS,
@@ -197,7 +198,7 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`/${process.env.BASE_URL}/admin/reviews?id=${reviewId}&productId=${productId}`)
+        const { data } = await axios.delete(`/${base_url}/admin/reviews?id=${reviewId}&productId=${productId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

@@ -20,6 +20,7 @@ import {
     UPDATE_ORDER_SUCCESS
 } from "../constants/orderConstants";
 import axios from 'axios'
+import {base_url} from '../url.js'
 //create Order
 export const createOrder = (order) => async (dispatch) => {
     try {
@@ -30,7 +31,7 @@ export const createOrder = (order) => async (dispatch) => {
                 "Content-Type": "application/json",
             }
         };
-        const { data } = await axios.post(`${process.env.BASE_URL}/order/new`, order, config);
+        const { data } = await axios.post(`${base_url}/order/new`, order, config);
 
         dispatch({
             type: CREATE_ORDER_SUCCESS,
@@ -47,7 +48,7 @@ export const myOrders = () => async (dispatch) => {
     try {
         dispatch({ type: MY_ORDERS_REQUEST });
 
-        const { data } = await axios.get(`${process.env.BASE_URL}/orders/me`);
+        const { data } = await axios.get(`${base_url}/orders/me`);
 
         dispatch({
             type: MY_ORDERS_SUCCESS,
@@ -64,7 +65,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: ORDER_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`${process.env.BASE_URL}/order/${id}`);
+        const { data } = await axios.get(`${base_url}/order/${id}`);
 
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
@@ -84,7 +85,7 @@ export const getAllOrders = () => async (dispatch) => {
     try {
         dispatch({ type: ALL_ORDER_REQUEST });
 
-        const { data } = await axios.get(`${process.env.BASE_URL}/admin/orders`);
+        const { data } = await axios.get(`${base_url}/admin/orders`);
 
         dispatch({ type: ALL_ORDER_SUCCESS, payload: data.orders });
     } catch (error) {
@@ -105,7 +106,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
                 "Content-Type": "application/json",
             }
         };
-        const { data } = await axios.put(`${process.env.BASE_URL}/admin/order/${id}`, order, config);
+        const { data } = await axios.put(`${base_url}/admin/order/${id}`, order, config);
 
         dispatch({
             type: UPDATE_ORDER_SUCCESS,
@@ -124,7 +125,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_ORDER_REQUEST });
 
-        const { data } = await axios.delete(`${process.env.BASE_URL}/admin/order/${id}`);
+        const { data } = await axios.delete(`${base_url}/admin/order/${id}`);
 
         dispatch({
             type: DELETE_ORDER_SUCCESS,

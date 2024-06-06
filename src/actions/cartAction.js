@@ -1,9 +1,9 @@
 import { ADD_TO_CART, CLEAR_CART, REMOVE_CART_ITEM, SAVE_SHIPPING_INFO } from '../constants/cartConstants'
 import axios from 'axios';
-
+import {base_url} from '../url.js'
 //ADD TO CART
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`${process.env.BASE_URL}/product/${id}`);
+    const { data } = await axios.get(`${base_url}/product/${id}`);
 
     dispatch({
         type: ADD_TO_CART,
