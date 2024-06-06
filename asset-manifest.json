@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.7e9a723b.css",
-    "main.js": "/static/js/main.75b6e29e.js",
-    "static/media/ecommercebg.jpg": "/static/media/ecommercebg.38f5f88b91fe7c633ec8.jpg",
-    "static/media/footer .jpg": "/static/media/footer .94d0c1b638d2285da1ae.jpg",
-    "static/media/Profile.png": "/static/media/Profile.697fdcd21f6d157b9073.png",
-    "static/media/playstore.png": "/static/media/playstore.82b4831979e0ce7c733e.png",
-    "static/media/Appstore.png": "/static/media/Appstore.d0c5839937e3c36285f6.png",
-    "index.html": "/index.html",
-    "main.7e9a723b.css.map": "/static/css/main.7e9a723b.css.map",
-    "main.75b6e29e.js.map": "/static/js/main.75b6e29e.js.map"
+    "main.css": "/mernfrontend/static/css/main.66362927.css",
+    "main.js": "/mernfrontend/static/js/main.7411d0a4.js",
+    "static/media/ecommercebg.jpg": "/mernfrontend/static/media/ecommercebg.38f5f88b91fe7c633ec8.jpg",
+    "static/media/footer .jpg": "/mernfrontend/static/media/footer .94d0c1b638d2285da1ae.jpg",
+    "static/media/Profile.png": "/mernfrontend/static/media/Profile.697fdcd21f6d157b9073.png",
+    "static/media/playstore.png": "/mernfrontend/static/media/playstore.82b4831979e0ce7c733e.png",
+    "static/media/Appstore.png": "/mernfrontend/static/media/Appstore.d0c5839937e3c36285f6.png",
+    "index.html": "/mernfrontend/index.html",
+    "main.66362927.css.map": "/mernfrontend/static/css/main.66362927.css.map",
+    "main.7411d0a4.js.map": "/mernfrontend/static/js/main.7411d0a4.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e9a723b.css",
-    "static/js/main.75b6e29e.js"
+    "static/css/main.66362927.css",
+    "static/js/main.7411d0a4.js"
   ]
 }
