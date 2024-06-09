@@ -1,1 +1,1 @@
-export const base_url = "https://mern-87y8.onrender.com/api/v1"
+export const base_url = '/api/v1'

@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { createOrder, clearErrors } from "../../actions/orderAction";
-import { base_url } from "../../url.js";
 
 function Payment() {
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ function Payment() {
       };
 
       const { data } = await axios.post(
-        `${base_url}/payment/process`,
+        `/api/v1/payment/process`,
         paymentData,
         config
       );
