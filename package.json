@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://mern-87y8.onrender.com",
   "dependencies": {
     "@mui/material": "^5.15.4",
     "@mui/x-data-grid": "^6.19.6",
