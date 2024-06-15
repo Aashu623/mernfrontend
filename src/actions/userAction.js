@@ -40,11 +40,15 @@ import axios from 'axios';
 
 
 //LOGIN
+// LOGIN
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true
+    };
 
     const { data } = await axios.post(
       `https://mern-87y8.onrender.com/api/v1/login`,
@@ -57,6 +61,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
   }
 };
+
 
 // REGISTER
 export const register = (userData) => async (dispatch) => {
