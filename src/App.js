@@ -43,7 +43,7 @@ function App() {
   // const [stripeApiKey, setStripeApiKey] = useState("");
 
   // const getStripeApiKey = async () => {
-  //   const { data } = await axios.get("https://mern-87y8.onrender.com/api/v1stripeapikey");
+  //   const { data } = await axios.get("https://mern-87y8.onrender.com/api/v1/stripeapikey");
   //   setStripeApiKey(toString(data.stripeApiKey));
   // }
 
