@@ -47,6 +47,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = {
       headers: { "Content-Type": "application/json" },
+      credentials: 'include'
     };
 
     const { data } = await axios.post(
@@ -67,7 +68,7 @@ export const register = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json" }, credentials: 'include' };
 
     const { data } = await axios.post(
       `https://mern-87y8.onrender.com/api/v1/register`,
@@ -87,7 +88,13 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`https://mern-87y8.onrender.com/api/v1/me`);
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include'
+    }
+    const { data } = await axios.post(`https://mern-87y8.onrender.com/api/v1/me`, config);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
