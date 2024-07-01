@@ -91,7 +91,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`https://mern-87y8.onrender.com/api/v1/me`);
+    const { data } = await axios.get(`https://mern-87y8.onrender.com/api/v1/me`, { withCredentials: true });
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
